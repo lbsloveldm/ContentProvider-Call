@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        TextView hellWorld = (TextView)findViewById(R.id.hellWorld);
+        TextView hellWorld = (TextView) findViewById(R.id.hellWorld);
         hellWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("debugtest", "client ver: " + aa.getLong("ver"));
                 aa = getContentResolver().call(APPSTORE_CONTENT_URI, "call_fun_1", "arg", new Bundle());
                 Log.d("debugtest", "client : " + aa);
+                try {
+                    aa = getContentResolver().call(APPSTORE_CONTENT_URI, "call_fun_2", "arg", new Bundle());
+                } catch (Exception e) {
+                }
             }
         });
     }
-
 
 
     @Override

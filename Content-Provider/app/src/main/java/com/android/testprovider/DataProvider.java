@@ -26,6 +26,7 @@ public class DataProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        Log.e("debugtest", "provider onCreate " + Thread.currentThread().getId());
         return false;
     }
 
@@ -87,15 +88,13 @@ public class DataProvider extends ContentProvider {
 
         try {
             int n = 0;
-            while (++n < 60) {
+            while (++n < 1) {
                 Thread.sleep(1000);
                 Log.e("debugtest", "provider call_fun_1 " + arg + " " + n);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
         return null;
     }
 
